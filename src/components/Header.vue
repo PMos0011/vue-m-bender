@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <img src="../images/logomini.webp" class="img-fluid col-6 col-sm-3 col-md-2" alt />
+  <nav class="navbar navbar-expand-md navbar-dark header">
+    <img src="images/logomini.webp" class="img-fluid col-6 col-sm-3 col-md-2" alt />
     <button
       class="navbar-toggler"
       type="button"
@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">
             <strong>STRONA GŁÓWNA</strong>
@@ -31,10 +31,10 @@
           >
             <strong>OFERTA</strong>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">USŁUGI KSIEGOWE</a>
-            <a class="dropdown-item" href="#">ROZLICZENIA PODATKOWE</a>
-            <a class="dropdown-item" href="#">USŁUGA KADROWO- PŁACOWA</a>
+          <div class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#"><strong>USŁUGI KSIEGOWE</strong> </a>
+            <a class="dropdown-item" href="#"><strong>ROZLICZENIA PODATKOWE</strong> </a>
+            <a class="dropdown-item" href="#"><strong>USŁUGA KADROWO- PŁACOWA</strong> </a>
           </div>
         </li>
         <li class="nav-item">
@@ -44,6 +44,7 @@
         </li>
       </ul>
     </div>
+    <div class="col-0 col-md-1"></div>
   </nav>
 </template>
 
@@ -52,9 +53,17 @@
 
 <style>
 .header {
-  background-color: #a09698;
+  background-color: #7f778f;
 }
 .navbar {
+  position: fixed;
+  width: 100%;
   font-family: Cinzel;
+  z-index: 100;
 }
+.custom-dropdown{
+  background-color:#9F9AA9;
+  box-shadow: 0px 5px 10px #7f778f;
+}
+
 </style>
