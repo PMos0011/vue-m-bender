@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark header">
-    <img src="images/logomini.webp" class="img-fluid col-6 col-sm-3 col-md-2" alt />
+  <nav class="navbar navbar-expand-md navbar-dark main-color">
+    <img src="images/logomini.webp" class="img-fluid col-6 col-sm-3 col-md-2" alt="M-Bender" />
     <button
       class="navbar-toggler"
       type="button"
@@ -52,7 +52,7 @@
 </script>
 
 <style>
-.header {
+.main-color {
   background-color: #7f778f;
 }
 .navbar {

@@ -5,7 +5,7 @@
     <app-description></app-description>
     <app-offert></app-offert>
     <app-paralax-image h="500px" imageSrc="../images/003.webp"></app-paralax-image>
-    <app-offert></app-offert>
+    <app-footer></app-footer>
   </div>
 </template>
 
@@ -15,6 +15,7 @@ import ParalaxTop from "./components/ParalaxTop";
 import Description from "./components/Description";
 import Offert from "./components/Offert";
 import ParalaxImage from "./components/ParalaxImage";
+import Footer from "./components/Footer";
 
 export default {
   components: {
@@ -22,7 +23,8 @@ export default {
     appParalaxTop: ParalaxTop,
     appDescription: Description,
     appOffert: Offert,
-    appParalaxImage: ParalaxImage
+    appParalaxImage: ParalaxImage,
+    appFooter:Footer
   }
 };
 </script>
