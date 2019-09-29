@@ -3,6 +3,7 @@
     <div
       class="offert-opt"
       :style="[isCenter=='true' ? {'background-image':' url(images/light_squere.webp)'} : {'background-image':' url(images/dark_squere.webp)'}]"
+      @click="sendMyId"
     >
       <slot name="offert"></slot>
     </div>
@@ -11,7 +12,12 @@
 
 <script>
 export default {
-  props: ["isCenter"]
+  methods: {
+    sendMyId() {
+      this.$emit("getMyId", this.myId);
+    }
+  },
+  props: ["isCenter", "myId"]
 };
 </script>
 
@@ -21,5 +27,6 @@ export default {
   width: 230px;
   margin: auto;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 </style>

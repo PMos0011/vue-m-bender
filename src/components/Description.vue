@@ -10,7 +10,7 @@
       </p>
       <p>
         MB Biuro Usług Księgowych prowadzi również kompletną księgowość dla klientów
-        <b>branży</b> medycznej bez względu na wybraną formę opodatkowania i rodzaj specjalizacji sektora medycznego.
+        <b>branży medycznej</b> bez względu na wybraną formę opodatkowania i rodzaj specjalizacji sektora medycznego.
       </p>
     </div>
   </div>
@@ -26,6 +26,8 @@
 }
 .about-us {
   width: 60%;
+  max-width: 650px;
+  min-width: 350px;
   margin: auto;
   padding-bottom: 50px;
 }

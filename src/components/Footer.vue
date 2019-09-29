@@ -21,14 +21,18 @@
       </div>
       <div class="e-mail col-md-6">
         <div class="form-group">
-          <label for="name">imię</label>
-          <input type="text" id="name" class="form-control" />
+          <input type="text" id="name" class="form-control" value="imię" onclick="this.select()" />
           <br />
-          <label for="email">adres e-mail</label>
-          <input type="text" id="email" class="form-control" />
+          <input type="text" id="email" class="form-control" value="e-mail" onclick="this.select()" />
           <br />
-          <label for="message">wiadomość</label>
-          <textarea name="message" id="message" cols="30" rows="5" class="col-12"></textarea>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="5"
+            class="col-12"
+            onclick="this.select()"
+          >Wiadomość</textarea>
           <button class="btn btn-secondary">Wyślij</button>
         </div>
       </div>
@@ -49,6 +53,7 @@
 .footer-content {
   width: 60%;
   margin: auto;
+  min-width: 380px;
 }
 h1 {
   padding-top: 70px;
@@ -64,7 +69,7 @@ h1 {
   color: white;
   margin-bottom: 30px;
 }
-.logo-margin{
-    margin-bottom: 30px;
+.logo-margin {
+  margin-bottom: 30px;
 }
 </style>
