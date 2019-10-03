@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .description-title {
   font-size: 72px;
   font-family: anton, sans-serif;
