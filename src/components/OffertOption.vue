@@ -3,7 +3,7 @@
     <div
       class="offert-opt"
       :style="[isCenter=='true' ? {'background-image':' url(images/light_squere.webp)'} : {'background-image':' url(images/dark_squere.webp)'}]"
-      @click="sendMyId"
+      @click="sendID"
     >
       <slot name="offert"></slot>
     </div>
@@ -11,10 +11,13 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 export default {
   methods: {
-    sendMyId() {
-      this.$emit("getMyId", this.myId);
+    sendID() {
+      eventBus.sendMyId(this.myId);
+      eventBus.elemScroll("description-container");
     }
   },
   props: ["isCenter", "myId"]

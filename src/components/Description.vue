@@ -3,7 +3,7 @@
     <div class="about-us">
       <h3>Nam możesz zaufać</h3>
       <p>
-        <b>MB Biuro Usług Księgowych</b> to młode, dynamicznie rozwijające się biuro z Wrocławia, świadczące szeroki zakres usług z pełnym zaangażowaniem w sprawy klienta. Oferujemy profesjonalną obsługę na wysokim poziomie, a także dbamy o partnerskie relacje z naszymi klientami.
+        <b>MB Biuro Usług Księgowych</b> to dynamicznie rozwijające się biuro z Wrocławia, świadczące szeroki zakres usług z pełnym zaangażowaniem w sprawy klienta. Oferujemy profesjonalną obsługę na wysokim poziomie, a także dbamy o partnerskie relacje z naszymi klientami.
       </p>
       <p>
         <b>MB Biuro Usług Księgowych</b> to nowoczesne biuro nastawione na pełne zaangażowanie w rozwiązywanie problemów, zapewniając przy tym najwyższy standard usług. Dzięki wiedzy, systematycznym podnoszeniem kwalifikacji zawodowych, a także monitorowaniu stale zmieniających się przepisów prawnych, jesteśmy w stanie świadczyć usługi na najwyższym poziomie w pełni zgodnym z aktualnymi rozporządzeniami.
@@ -26,7 +26,7 @@
 }
 .about-us {
   width: 60%;
-  max-width: 650px;
+  max-width: 630px;
   min-width: 350px;
   margin: auto;
   padding-bottom: 50px;

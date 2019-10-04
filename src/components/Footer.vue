@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer" id="footer-selector">
     <div class="footer-content">
       <h1>KONTAKT</h1>
     </div>

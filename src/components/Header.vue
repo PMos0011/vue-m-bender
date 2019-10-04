@@ -1,70 +1,84 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark main-color">
-    <div class="logo-container col-6 col-sm-3 col-md-2" v-scroll="shrinkNavbar">
-      <transition-group name="slide">
-        <img
-          src="images/logoTop.webp"
-          class="img-fluid"
-          alt="M-Bender"
-          v-show="showTopLogo"
-          key="top"
-        />
-        <img src="images/logoBottom.webp" class="img-fluid" alt="M-Bender" key="bottom" />
-      </transition-group>
-    </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+  <div id="navbar-selector">
+    <nav
+      class="navbar navbar-expand-md navbar-dark main-color"
+      data-toggle="tab"
+      id="navbar-element"
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <strong>STRONA GŁÓWNA</strong>
-          </a>
-        </li>
-        <li class="nav-item dropdown" @mouseenter="dropOut" @mouseleave="dropIn">
-          <a class="nav-link dropdown-toggle" href="#">
-            <strong>OFERTA</strong>
-          </a>
-          <div class="dropdown-menu custom-dropdown" id="drop">
-            <a class="dropdown-item" href="#">
-              <strong>USŁUGI KSIĘGOWE</strong>
+      <div class="logo-container col-6 col-sm-3 col-md-2" v-scroll="shrinkNavbar">
+        <transition-group name="slide">
+          <img
+            src="images/logoTop.webp"
+            class="img-fluid navbar-image"
+            alt="M-Bender"
+            v-show="showTopLogo"
+            key="top"
+            @click="scrollTo('navbar-selector')"
+          />
+          <img
+            src="images/logoBottom.webp"
+            class="img-fluid navbar-image"
+            alt="M-Bender"
+            key="bottom"
+            @click="scrollTo('navbar-selector')"
+          />
+        </transition-group>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href @click="scrollTo('navbar-selector')">
+              <strong>STRONA GŁÓWNA</strong>
             </a>
-            <a class="dropdown-item" href="#">
-              <strong>ROZLICZENIA PODATKOWE</strong>
+          </li>
+          <li class="nav-item dropdown" @mouseenter="dropIn" @mouseleave="dropOut">
+            <a class="nav-link dropdown-toggle" href @click="scrollTo('offert-selector')">
+              <strong>OFERTA</strong>
             </a>
-            <a class="dropdown-item" href="#">
-              <strong>USŁUGA KADROWO- PŁACOWA</strong>
+            <div class="dropdown-menu custom-dropdown" id="drop">
+              <a class="dropdown-item" href @click="sendID('left')">
+                <strong>USŁUGI KSIĘGOWE</strong>
+              </a>
+              <a class="dropdown-item" href @click="sendID('center')">
+                <strong>ROZLICZENIA PODATKOWE</strong>
+              </a>
+              <a class="dropdown-item" href @click="sendID('right')">
+                <strong>USŁUGA KADROWO- PŁACOWA</strong>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href @click="scrollTo('footer-selector')">
+              <strong>KONTAKT</strong>
             </a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <strong>KONTAKT</strong>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-0 col-md-1"></div>
-  </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="col-0 col-md-1"></div>
+    </nav>
+  </div>
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 export default {
   data() {
     return {
       showTopLogo: true,
       opc: 0,
-      interval: 0,
-      elemOffset: 0
+      interval: 0
     };
   },
   methods: {
@@ -75,12 +89,12 @@ export default {
         this.showTopLogo = true;
       }
     },
-    dropOut() {
+    dropIn() {
       if (this.opc == 0) {
         var elem = document.getElementById("drop");
         elem.style.display = "block";
-        this.elemOffset = elem.offsetTop;
-        elem.style.top = this.elemOffset - 5 + "px";
+        var elemOffset = elem.offsetTop;
+        elem.style.top = elemOffset - 5 + "px";
         elem.style.opacity = 0;
         this.interval = setInterval(() => {
           elem.style.opacity = this.opc;
@@ -92,7 +106,7 @@ export default {
         }, 20);
       }
     },
-    dropIn() {
+    dropOut() {
       clearInterval(this.interval);
       var elem = document.getElementById("drop");
       this.opc = elem.style.opacity;
@@ -101,15 +115,21 @@ export default {
         elem.style.opacity = this.opc;
         if (this.opc <= 0) {
           clearInterval(interval);
-          elem.style.top = this.elemOffset - 2 + "px";
+          elem.style.top = "auto";
           elem.style.display = "none";
           elem.style.opacity = 0;
           this.opc = 0;
         }
       }, 20);
     },
-    test(){
-      console.log("test");
+    scrollTo(id) {
+      this.dropOut();
+      eventBus.elemScroll(id);
+    },
+    sendID(id) {
+      this.dropOut();
+      eventBus.sendMyId(id);
+      eventBus.elemScroll("description-container");
     }
   }
 };
@@ -124,6 +144,9 @@ export default {
   width: 100%;
   font-family: Cinzel;
   z-index: 100;
+}
+.navbar-image {
+  cursor: pointer;
 }
 .custom-dropdown {
   background-color: #9f9aa9;

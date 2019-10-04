@@ -2,7 +2,7 @@
   <div class="col-12">
     <div class="row">
       <div
-        class="col-sm-12 col-md-5 description-title"
+        class="col-sm-12 col-md-5 description-title" id="offert-description-selector"
         :style="[isCenter=='true' ? {'color': '#A69374'} : {'color':' #757575'}]"
       >
         <slot name="description-title"></slot>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="offert-content">
+    <div class="offert-content" id="offert-selector">
       <h1>OFERTA</h1>
       <div class="offert row">
-        <app-offert-option isCenter="false" myId="left" @getMyId="changeDescription($event)">
+        <app-offert-option isCenter="false" myId="left">
           <h2 slot="offert">Usługi Księgowe</h2>
         </app-offert-option>
-        <app-offert-option isCenter="true" myId="center" @getMyId="changeDescription($event)">
+        <app-offert-option isCenter="true" myId="center">
           <h2 slot="offert">Usługa Kadrowo- płacowa</h2>
         </app-offert-option>
-        <app-offert-option isCenter="false" myId="right" @getMyId="changeDescription($event)">
+        <app-offert-option isCenter="false" myId="right">
           <h2 slot="offert">Rozliczenia podatkowe</h2>
         </app-offert-option>
       </div>
@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 import OffertOption from "./OffertOption";
 import OffertDescription from "./OffertDescription";
 import ParalaxImage from "./ParalaxImage";
@@ -97,7 +99,7 @@ export default {
           if (this.currentElemHeight <= elemHeight)
             clearInterval(this.intervalSlide);
         }
-      }, 10);
+      }, 5);
     },
 
     fadeInFunction(elem, done) {
@@ -167,6 +169,11 @@ export default {
     appOffertOption: OffertOption,
     appOffertDescription: OffertDescription,
     appParalaxImage: ParalaxImage
+  },
+  created() {
+    eventBus.$on("getMyId", myID => {
+      this.changeDescription(myID);
+    });
   }
 };
 </script>
