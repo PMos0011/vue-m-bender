@@ -144,6 +144,9 @@ export default {
         this.showCenter = false;
         this.showRight = !this.showRight;
       }
+      if (this.showLeft || this.showCenter || this.showRight)
+        eventBus.elemScroll("description-container");
+      else eventBus.elemScroll("offert-selector");
     },
     beforeEnter(el) {
       var elem = document.getElementById("description-container");
@@ -158,6 +161,7 @@ export default {
     leave(el, done) {
       var elem = document.getElementById("description-container");
       this.fadeOutFunction(elem, done);
+ 
     },
     afterLeave(el) {
       var elem = document.getElementById("description-container");

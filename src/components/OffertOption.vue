@@ -17,7 +17,6 @@ export default {
   methods: {
     sendID() {
       eventBus.sendMyId(this.myId);
-      eventBus.elemScroll("description-container");
     }
   },
   props: ["isCenter", "myId"]

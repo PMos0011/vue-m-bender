@@ -129,7 +129,6 @@ export default {
     sendID(id) {
       this.dropOut();
       eventBus.sendMyId(id);
-      eventBus.elemScroll("description-container");
     }
   }
 };
