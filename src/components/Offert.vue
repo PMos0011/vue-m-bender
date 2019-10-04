@@ -75,10 +75,57 @@ export default {
     return {
       showLeft: false,
       showCenter: false,
-      showRight: false
+      showRight: false,
+      currentElemHeight: 0,
+      intervalSlide: 0
     };
   },
   methods: {
+    slideFunction(elem) {
+      clearInterval(this.intervalSlide);
+      var elemHeight = elem.offsetHeight;
+      var difference = elemHeight - this.currentElemHeight;
+      var hop = difference / 80;
+      this.intervalSlide = setInterval(() => {
+        elem.style.height = this.currentElemHeight + "px";
+        this.currentElemHeight += hop;
+        $(window).trigger("resize.px.parallax");
+        if (hop > 0) {
+          if (this.currentElemHeight >= elemHeight)
+            clearInterval(this.intervalSlide);
+        } else {
+          if (this.currentElemHeight <= elemHeight)
+            clearInterval(this.intervalSlide);
+        }
+      }, 10);
+    },
+
+    fadeInFunction(elem, done) {
+      var opc = 0;
+      const interval = setInterval(() => {
+        elem.style.opacity = opc;
+        opc += 0.05;
+        if (opc >= 1) {
+          clearInterval(interval);
+          elem.style.opacity = 1;
+          done();
+        }
+      }, 40);
+    },
+
+    fadeOutFunction(elem, done) {
+      var opc = 1;
+      const interval = setInterval(() => {
+        elem.style.opacity = opc;
+        opc -= 0.1;
+        if (opc <= 0) {
+          clearInterval(interval);
+          elem.style.opacity = 0;
+          done();
+        }
+      }, 40);
+    },
+
     changeDescription(myId) {
       if (myId === "left") {
         this.showLeft = !this.showLeft;
@@ -102,38 +149,18 @@ export default {
       elem.style.opacity = 0;
     },
     enter(el, done) {
-      $(window).trigger("resize.px.parallax");
       var elem = document.getElementById("description-container");
-      var opc = 0;
-      const interval = setInterval(() => {
-        elem.style.opacity = opc;
-        opc+=0.05;
-        if(opc>=1){
-          clearInterval(interval)
-          elem.style.opacity=1;
-          done();
-        }
-      }, 40);
-      
+      this.fadeInFunction(elem, done);
+      this.slideFunction(elem);
     },
     leave(el, done) {
-       $(window).trigger("resize.px.parallax");
       var elem = document.getElementById("description-container");
-      var opc = 1;
-      const interval = setInterval(() => {
-        elem.style.opacity = opc;
-        opc-=0.05;
-        if(opc<=0){
-          clearInterval(interval)
-          elem.style.opacity=0;
-          done();
-        }
-      }, 20);
+      this.fadeOutFunction(elem, done);
     },
     afterLeave(el) {
       var elem = document.getElementById("description-container");
       elem.style.height = "0px";
-      $(window).trigger("resize.px.parallax");
+      this.slideFunction(elem);
     }
   },
   components: {

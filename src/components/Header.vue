@@ -36,7 +36,7 @@
           </a>
           <div class="dropdown-menu custom-dropdown" id="drop">
             <a class="dropdown-item" href="#">
-              <strong>USŁUGI KSIEGOWE</strong>
+              <strong>USŁUGI KSIĘGOWE</strong>
             </a>
             <a class="dropdown-item" href="#">
               <strong>ROZLICZENIA PODATKOWE</strong>
@@ -107,6 +107,9 @@ export default {
           this.opc = 0;
         }
       }, 20);
+    },
+    test(){
+      console.log("test");
     }
   }
 };
