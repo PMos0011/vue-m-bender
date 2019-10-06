@@ -17,8 +17,15 @@
         <p class="black-text">Telefon</p>
         <p class="white-text">531 405 500</p>
         <div class="row logo-margin">
-          <img src="images/fb.webp" alt="Facebook" />
-          <img src="images/instagram.webp" alt="Instagram" />
+          <a
+            href="https://www.facebook.com/MB-Biuro-Us%C5%82ug-Ksi%C4%99gowych-2144983182199156/"
+            target="_blank"
+          >
+            <img src="images/fb.webp" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/mb.biuro.uslug.ksiegowych/" target="_blank">
+            <img src="images/instagram.webp" alt="Instagram" />
+          </a>
         </div>
       </div>
       <div class="e-mail col-md-6">
@@ -58,10 +65,17 @@
         <div id="response">{{response}}</div>
       </div>
     </div>
+    <footer>
+      <cookie-law 
+      message="Ta strona wykorzystuje pliki cookies aby zapewnić najlepszą jakość korzystania z naszej witryny"
+      theme="blood-orange--rounded"
+      buttonText="Ok"></cookie-law>
+    </footer>
   </div>
 </template>
 
 <script>
+import CookieLaw from "vue-cookie-law";
 export default {
   data() {
     return {
@@ -85,10 +99,12 @@ export default {
           contactForm.response = response.data;
         })
         .catch(error => {
-          contactForm.response = error;
+          contactForm.response = "Coś poszło nie tak. Spróbuj ponownie później";
+          console.log(error);
         });
     }
-  }
+  },
+  components: { CookieLaw }
 };
 </script>
 
