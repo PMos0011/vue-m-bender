@@ -4,7 +4,23 @@
       <h1>KONTAKT</h1>
     </div>
     <div class="footer-content row justify-content-between">
-      <div class="contact col-md-5">
+      <div class="col-md-2">
+        <p class="black-text">Godziny otwarcia</p>
+        <p class="white-text">
+          pn-wt: 8.00 - 16.00
+          <br />śr: 10.00 - 16.00
+          <br />czw-pt: 8.00 - 16.00
+        </p>
+        <a href="https://www.iksiegowosc24.pl/biura-rachunkowe/dolnoslaskie/wroclaw/mb-biuro-uslug-ksiegowych-monika-moskwa" target="_blank" title="Biuro polecane przez iKsiegowosc24">
+        <img src="images/iksiegowosc.webp" class="img-fluid" alt="Biuro polecane przez iKsiegowosc24" />
+        </a>
+        <br />
+        <br />
+        <img src="images/comarch.webp" class="img-fluid" alt="Używam Comarch" />
+        <br />
+        <br />
+      </div>
+      <div class="contact col-md-3">
         <p class="black-text">Adres</p>
         <p class="white-text">
           ul. Królewiecka 45
@@ -28,7 +44,7 @@
           </a>
         </div>
       </div>
-      <div class="e-mail col-md-6">
+      <div class="e-mail col-md-5">
         <form id="mail-sender" @submit="sendEmail">
           <input
             type="text"
@@ -66,10 +82,11 @@
       </div>
     </div>
     <footer>
-      <cookie-law 
-      message="Ta strona wykorzystuje pliki cookies aby zapewnić najlepszą jakość korzystania z naszej witryny"
-      theme="blood-orange--rounded"
-      buttonText="Ok"></cookie-law>
+      <cookie-law
+        message="Ta strona wykorzystuje pliki cookies aby zapewnić najlepszą jakość korzystania z naszej witryny"
+        theme="blood-orange--rounded"
+        buttonText="Ok"
+      ></cookie-law>
     </footer>
   </div>
 </template>
@@ -116,7 +133,7 @@ export default {
   font-weight: bold;
 }
 .footer-content {
-  width: 60%;
+  width: 70%;
   margin: auto;
   min-width: 380px;
 }
