@@ -1,5 +1,6 @@
 <template>
   <div>
+     <size-modal />
     <app-header></app-header>
     <app-paralax-top></app-paralax-top>
     <app-description></app-description>
@@ -15,13 +16,16 @@ import Description from "./components/Description";
 import Offert from "./components/Offert";
 import Footer from "./components/Footer";
 
+import SizeModal from "./components/CoockiesPolicy";
+
 export default {
   components: {
     appHeader: Header,
     appParalaxTop: ParalaxTop,
     appDescription: Description,
     appOffert: Offert,
-    appFooter:Footer
+    appFooter:Footer,
+    SizeModal
   }
 };
 </script>

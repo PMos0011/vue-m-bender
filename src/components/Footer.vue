@@ -11,8 +11,16 @@
           <br />śr: 10.00 - 16.00
           <br />czw-pt: 8.00 - 16.00
         </p>
-        <a href="https://www.iksiegowosc24.pl/biura-rachunkowe/dolnoslaskie/wroclaw/mb-biuro-uslug-ksiegowych-monika-moskwa" target="_blank" title="Biuro polecane przez iKsiegowosc24">
-        <img src="images/iksiegowosc.webp" class="img-fluid" alt="Biuro polecane przez iKsiegowosc24" />
+        <a
+          href="https://www.iksiegowosc24.pl/biura-rachunkowe/dolnoslaskie/wroclaw/mb-biuro-uslug-ksiegowych-monika-moskwa"
+          target="_blank"
+          title="Biuro polecane przez iKsiegowosc24"
+        >
+          <img
+            src="images/iksiegowosc.webp"
+            class="img-fluid"
+            alt="Biuro polecane przez iKsiegowosc24"
+          />
         </a>
         <br />
         <br />
@@ -81,6 +89,10 @@
         <div id="response">{{response}}</div>
       </div>
     </div>
+    <div class="footer-content" data-toggle="tab">
+      <br />
+      <a class="white-text" href @click="$modal.show('size-modal')">polityka cookies</a>
+    </div>
     <footer>
       <cookie-law
         message="Ta strona wykorzystuje pliki cookies aby zapewnić najlepszą jakość korzystania z naszej witryny"
@@ -93,6 +105,7 @@
 
 <script>
 import CookieLaw from "vue-cookie-law";
+
 export default {
   data() {
     return {
