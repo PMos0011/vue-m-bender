@@ -1,5 +1,6 @@
 <template>
   <div class="footer" id="footer-selector">
+    <size-modal />
     <div class="footer-content">
       <h1>KONTAKT</h1>
     </div>
@@ -39,7 +40,7 @@
         <br />
         <br />
         <p class="black-text">Telefon</p>
-        <p class="white-text">531 405 500</p>
+        <a class="white-text" href="tel:+48531405500">531 405 500</a>
         <div class="row logo-margin">
           <a
             href="https://www.facebook.com/MB-Biuro-Us%C5%82ug-Ksi%C4%99gowych-2144983182199156/"
@@ -105,6 +106,7 @@
 
 <script>
 import CookieLaw from "vue-cookie-law";
+import SizeModal from "./CoockiesPolicy";
 
 export default {
   data() {
@@ -117,6 +119,7 @@ export default {
   },
   methods: {
     sendEmail(e) {
+       document.body.style.cursor = "wait";
       e.preventDefault();
       var contactForm = this;
       this.axios
@@ -127,14 +130,16 @@ export default {
         })
         .then(response => {
           contactForm.response = response.data;
+          document.body.style.cursor = "default";
         })
         .catch(error => {
           contactForm.response = "Coś poszło nie tak. Spróbuj ponownie później";
           console.log(error);
+          document.body.style.cursor = "default";
         });
     }
   },
-  components: { CookieLaw }
+  components: { CookieLaw, SizeModal }
 };
 </script>
 
@@ -165,6 +170,7 @@ h1 {
   margin-bottom: 30px;
 }
 .logo-margin {
+  margin-top:30px;
   margin-bottom: 30px;
 }
 </style>

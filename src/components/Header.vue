@@ -38,30 +38,35 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href @click="scrollTo('navbar-selector')">
+            <router-link to="/" class="nav-link" v-on:click.native="scrollTo('navbar-selector')">
               <strong>STRONA GŁÓWNA</strong>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item dropdown" @mouseenter="dropIn" @mouseleave="dropOut">
-            <a class="nav-link dropdown-toggle" href @click="scrollTo('offert-selector')">
+            <router-link to="/" class="nav-link dropdown-toggle" v-on:click.native="scrollTo('offert-selector')">
               <strong>OFERTA</strong>
-            </a>
+            </router-link>
             <div class="dropdown-menu custom-dropdown" id="drop">
-              <a class="dropdown-item" href @click="sendID('left')">
+              <router-link to="/" class="dropdown-item" v-on:click.native="sendID('left')">
                 <strong>USŁUGI KSIĘGOWE</strong>
-              </a>
-              <a class="dropdown-item" href @click="sendID('center')">
+              </router-link>
+              <router-link to="/" class="dropdown-item" v-on:click.native="sendID('center')">
                 <strong>ROZLICZENIA PODATKOWE</strong>
-              </a>
-              <a class="dropdown-item" href @click="sendID('right')">
+              </router-link>
+              <router-link to="/" class="dropdown-item" v-on:click.native="sendID('right')">
                 <strong>USŁUGA KADROWO- PŁACOWA</strong>
-              </a>
+              </router-link>
             </div>
           </li>
+           <li class="nav-item">
+            <router-link to="/valuation" class="nav-link" v-on:click.native="scrollTo('valuation-selector')">
+              <strong>ZAPYAJ O CENĘ</strong>
+            </router-link>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href @click="scrollTo('footer-selector')">
+            <router-link to="/" class="nav-link" v-on:click.native="scrollTo('footer-selector')">
               <strong>KONTAKT</strong>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>

@@ -3,6 +3,9 @@ import App from "./App.vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import VModal from "vue-js-modal";
+import VueRouter from 'vue-router';
+import {routes} from './components/routers';
+import vSelect from 'vue-select';
 
 Vue.use(VueAxios, axios);
 Vue.use(VModal, {
@@ -11,6 +14,10 @@ Vue.use(VModal, {
   dynamicDefaults: {
     foo: "foo"
   }
+});
+Vue.use(VueRouter);
+const router = new VueRouter({
+  routes,
 });
 
 Vue.directive("scroll", {
@@ -23,6 +30,8 @@ Vue.directive("scroll", {
     window.addEventListener("scroll", f);
   }
 });
+
+Vue.component('v-select', vSelect)
 
 export const eventBus = new Vue({
   methods: {
@@ -41,6 +50,8 @@ export const eventBus = new Vue({
   }
 });
 
+
 new Vue({
+  router,
   render: h => h(App)
 }).$mount("#app");

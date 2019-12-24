@@ -1,31 +1,19 @@
 <template>
   <div>
-     <size-modal />
     <app-header></app-header>
     <app-paralax-top></app-paralax-top>
-    <app-description></app-description>
-    <app-offert></app-offert>
-    <app-footer></app-footer>
+    <router-view></router-view> 
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import ParalaxTop from "./components/ParalaxTop";
-import Description from "./components/Description";
-import Offert from "./components/Offert";
-import Footer from "./components/Footer";
-
-import SizeModal from "./components/CoockiesPolicy";
+import ParalaxTop from "./components/ParalaxTop"
 
 export default {
   components: {
     appHeader: Header,
-    appParalaxTop: ParalaxTop,
-    appDescription: Description,
-    appOffert: Offert,
-    appFooter:Footer,
-    SizeModal
+    appParalaxTop: ParalaxTop  
   }
 };
 </script>
