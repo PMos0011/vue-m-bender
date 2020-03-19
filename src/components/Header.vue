@@ -60,7 +60,7 @@
           </li>
            <li class="nav-item">
             <router-link to="/valuation" class="nav-link" v-on:click.native="scrollTo('valuation-selector')">
-              <strong>ZAPYAJ O CENĘ</strong>
+              <strong>ZAPYTAJ O CENĘ</strong>
             </router-link>
           </li>
           <li class="nav-item">

@@ -119,6 +119,6 @@ export default {
   font-style: 2px;
   font-weight: 200;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: x-small;
+  font-size: small;
 }
 </style>
