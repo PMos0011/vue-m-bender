@@ -11,6 +11,7 @@ import Description from "./Description";
 import Offert from "./Offert";
 import Footer from "./Footer";
 
+
 export default {
     components: {
     appDescription: Description,

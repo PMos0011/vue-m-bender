@@ -9,8 +9,7 @@
         <p class="black-text">Godziny otwarcia</p>
         <p class="white-text">
           pn-wt: 8.00 - 16.00
-          <br />śr: 10.00 - 16.00
-          <br />czw-pt: 8.00 - 16.00
+          <br />śr: 10.00 - 16.00 <br />czw-pt: 8.00 - 16.00
         </p>
         <a
           href="https://www.iksiegowosc24.pl/biura-rachunkowe/dolnoslaskie/wroclaw/mb-biuro-uslug-ksiegowych-monika-moskwa"
@@ -36,7 +35,9 @@
           <br />54-109 Wrocław
         </p>
         <p class="black-text">E-mail</p>
-        <a class="white-text" href="mailto:ksiegowosc@m-bender.pl">ksiegowosc@m-bender.pl</a>
+        <a class="white-text" href="mailto:ksiegowosc@m-bender.pl"
+          >ksiegowosc@m-bender.pl</a
+        >
         <br />
         <br />
         <p class="black-text">Telefon</p>
@@ -48,7 +49,10 @@
           >
             <img src="images/fb.webp" alt="Facebook" />
           </a>
-          <a href="https://www.instagram.com/mb.biuro.uslug.ksiegowych/" target="_blank">
+          <a
+            href="https://www.instagram.com/mb.biuro.uslug.ksiegowych/"
+            target="_blank"
+          >
             <img src="images/instagram.webp" alt="Instagram" />
           </a>
         </div>
@@ -87,12 +91,15 @@
           ></textarea>
           <button type="submit" class="btn btn-secondary">Wyślij</button>
         </form>
-        <div id="response">{{response}}</div>
+        <div id="response">{{ response }}</div>
+        <app-information></app-information>
       </div>
     </div>
     <div class="footer-content" data-toggle="tab">
       <br />
-      <a class="white-text" href @click="$modal.show('size-modal')">polityka cookies</a>
+      <a class="white-text" href @click="$modal.show('size-modal')"
+        >polityka cookies</a
+      >
     </div>
     <footer>
       <cookie-law
@@ -107,6 +114,7 @@
 <script>
 import CookieLaw from "vue-cookie-law";
 import SizeModal from "./CoockiesPolicy";
+import Infromation from "./InfrmationClauses";
 
 export default {
   data() {
@@ -119,7 +127,7 @@ export default {
   },
   methods: {
     sendEmail(e) {
-       document.body.style.cursor = "wait";
+      document.body.style.cursor = "wait";
       e.preventDefault();
       var contactForm = this;
       this.axios
@@ -139,7 +147,7 @@ export default {
         });
     }
   },
-  components: { CookieLaw, SizeModal }
+  components: { CookieLaw, SizeModal, appInformation: Infromation }
 };
 </script>
 
@@ -170,7 +178,7 @@ h1 {
   margin-bottom: 30px;
 }
 .logo-margin {
-  margin-top:30px;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 </style>

@@ -51,9 +51,11 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .size-modal-content {
   padding: 10px;
   font-style: 13px;
+  font-weight: 200;
+  font-family:Arial, Helvetica, sans-serif
 }
 </style>

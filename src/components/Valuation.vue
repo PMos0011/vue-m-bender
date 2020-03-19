@@ -166,10 +166,13 @@
         <div class="col-lg-5" id="response">{{ response }}</div>
       </div>
     </form>
+    <app-information></app-information>
   </div>
 </template>
 
 <script>
+import Infromation from "./InfrmationClauses";
+
 export default {
   data() {
     return {
@@ -246,7 +249,8 @@ export default {
           document.body.style.cursor = "default";
         });
     }
-  }
+  },
+  components: {appInformation: Infromation }
 };
 </script>
 

@@ -6,6 +6,7 @@ import VModal from "vue-js-modal";
 import VueRouter from 'vue-router';
 import {routes} from './components/routers';
 import vSelect from 'vue-select';
+import ReadMore from "vue-read-more";
 
 Vue.use(VueAxios, axios);
 Vue.use(VModal, {
@@ -32,6 +33,8 @@ Vue.directive("scroll", {
 });
 
 Vue.component('v-select', vSelect)
+
+Vue.use(ReadMore);
 
 export const eventBus = new Vue({
   methods: {
