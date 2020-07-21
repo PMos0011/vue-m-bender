@@ -182,7 +182,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .offert-content {
   text-align: center;
   margin: auto;
